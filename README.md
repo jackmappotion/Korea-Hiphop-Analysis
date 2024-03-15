@@ -47,4 +47,9 @@
 
 ![image](./README_ASSETS/국힙변화트렌드.png)
 
-국내힙합의장르구분.ipynb
+---
+## Inspired by
+- [fma : mp3에서 feature를 추출하는 방법](https://github.com/mdeff/fma)
+- [librosa : python에서 가장 유명한 소리데이터를 다루는 라이브러리?](https://github.com/librosa/librosa)
+- [유튜브 : 장르에 experimental 열풍이 불기 시작하면 점점 쇠퇴한다?](https://www.youtube.com/watch?v=Ua6hkhTZb7E)
+
