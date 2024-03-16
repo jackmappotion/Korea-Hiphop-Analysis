@@ -48,7 +48,7 @@ def append_features(feature_series, x, sr):
     f = librosa.feature.zero_crossing_rate(x, frame_length=2048, hop_length=512)
     feature_series = feature_stats(feature_series, "zcr", f)
 
-    # #
+    # cqt required stuff
     cqt = np.abs(
         librosa.cqt(x, sr=sr, hop_length=512, bins_per_octave=12, n_bins=7 * 12, tuning=None)
     )
@@ -59,7 +59,7 @@ def append_features(feature_series, x, sr):
     f = librosa.feature.tonnetz(chroma=f)
     feature_series = feature_stats(feature_series, "tonnetz", f)
 
-    # #
+    # stft required stuff
     stft = np.abs(librosa.stft(x, n_fft=2048, hop_length=512))
     f = librosa.feature.chroma_stft(S=stft**2, n_chroma=12)
     feature_series = feature_stats(feature_series, "chroma_stft", f)
@@ -71,6 +71,8 @@ def append_features(feature_series, x, sr):
     feature_series = feature_stats(feature_series, "spectral_contrast", f)
     f = librosa.feature.spectral_rolloff(S=stft)
     feature_series = feature_stats(feature_series, "spectral_rolloff", f)
+    
+    # mel required stuff
     mel = librosa.feature.melspectrogram(sr=sr, S=stft**2)
     f = librosa.feature.mfcc(S=librosa.power_to_db(mel), n_mfcc=20)
     feature_series = feature_stats(feature_series, "mfcc", f)
