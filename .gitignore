@@ -3,3 +3,4 @@ fma/
 .DS_Store
 models/
 __pycache__/
+checker.ipynb
